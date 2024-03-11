@@ -1,0 +1,168 @@
+ul,
+ol,
+menu {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+img{
+  width: 100%;
+  height:100%;
+}
+
+/************************************************
+      UTILITIES
+   ************************************************/
+.d-contents {
+  display: contents;
+}
+
+/*************************************************
+    GENERAL STYLES
+ *************************************************/
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#img_carosello {
+  overflow: hidden;
+  width: 70%;
+  height: 70%;
+  position: relative;
+  border-radius:1em 0 0 1em;
+}
+#img_carosello img {
+  display: none;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+#img_carosello img.ms_active {
+  display: block !important;
+  animation: img_in 0.5s ease-in; 
+  z-index: 2;
+}
+#img_carosello img.ms_second-last {
+  display: block !important;
+  animation: img_out 0.5s; 
+  z-index: 1;
+}
+
+/* @keyframes img_in {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+@keyframes img_out {
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+} */
+
+@keyframes img_in {
+  0%{
+    transform: translate(0, -70vh);
+  }
+  100%{
+    transform: translate(0, 0);
+  }
+}
+@keyframes img_out {
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0.6;
+  }
+}
+
+#img_carosello_side{
+  overflow: hidden;
+  width: 20%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius:0 1em 1em 0;
+}
+#img_carosello_side .img_box {
+  flex-grow: 1;
+  position: relative;
+}
+.img_box img,.img_box div{
+  position: absolute;
+  object-fit: cover;
+}
+.img_box div{
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+  transition: opacity 0.3s; 
+}
+.img_box:first-of-type img{
+  border-radius:0 1em 0 0;
+}
+.img_box:last-of-type img{
+  border-radius:0 0 1em 0;
+}
+
+.img_box div:hover{
+  opacity: 0.2;
+}
+
+#img_carosello_side .ms_active+div{
+  opacity: 0 !important;
+}
+#img_carosello_side .ms_active{
+  border: 3px solid #dbdbdb;
+  transition: border 0.3s; 
+}
+
+.ms_bt {
+  border: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 0.5;
+  position: absolute;
+  left: calc(50% - 15px);
+  transition: opacity 0.3s, border 0.3s;  
+  z-index: 1;
+}
+.ms_bt:hover{
+  border: 1px solid gray;
+  opacity: 1;
+  color: gray;
+}
+
+.ms_top {
+  top: 10px;
+}
+.ms_bottom {
+  bottom: 10px;
+}
+/*************************************************
+    MEDIA RESPONSIVE
+ *************************************************/
+/* breakpoints Medium*/
+@media (min-width: 768px) {
+}
+/* breakpoints Large*/
+@media (min-width: 992px) {
+}
